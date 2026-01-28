@@ -1,6 +1,5 @@
 flows:
-  c65a4b5d-e4f0-4d85-9444-3ba3acddb68f: {ver: 1, file: nuovobucket.snapshot, comments: creazione
-      del flusso seconda prova, author: anonymous, created: 1769619118863, flowName: nuovobucket,
-    flowDesc: ''}
+  c65a4b5d-e4f0-4d85-9444-3ba3acddb68f: {ver: 2, file: nuovobucket.snapshot, comments: putfile,
+    author: anonymous, created: 1769619141728, flowName: nuovobucket, flowDesc: ''}
 layoutVer: 1
 bucketId: 2bf0ad71-b0ba-49e3-ab59-6e3161a2c017
