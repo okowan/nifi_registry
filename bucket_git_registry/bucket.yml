@@ -8,5 +8,8 @@ flows:
     created: 1769614247715
     flowName: test_Versione1
     flowDesc: ''
+  adc4547d-91b2-4710-8616-713883bbdbb1: {ver: 1, file: Versione_flusso_aggiornato.snapshot,
+    comments: flusso configurato, author: anonymous, created: 1769614612435, flowName: Versione_flusso
+      aggiornato, flowDesc: ''}
 layoutVer: 1
 bucketId: 2fe9fbce-0290-4971-9d1f-0df329b55e24
