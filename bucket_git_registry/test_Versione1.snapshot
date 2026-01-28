@@ -8,7 +8,73 @@
       "flowContents" : {
         "comments" : "",
         "componentType" : "PROCESS_GROUP",
-        "connections" : [ ],
+        "connections" : [ {
+          "backPressureDataSizeThreshold" : "1 GB",
+          "backPressureObjectThreshold" : 10000,
+          "bends" : [ ],
+          "componentType" : "CONNECTION",
+          "destination" : {
+            "comments" : "",
+            "groupId" : "8fe0853f-db36-3235-9500-890f39713c9f",
+            "id" : "12ff65cf-b291-3925-ac03-b8b0d9b7570c",
+            "instanceIdentifier" : "05345fcf-019c-1000-2f67-8ca4c95b7b67",
+            "name" : "ReplaceText",
+            "type" : "PROCESSOR"
+          },
+          "flowFileExpiration" : "0 sec",
+          "groupIdentifier" : "8fe0853f-db36-3235-9500-890f39713c9f",
+          "identifier" : "7c3e11fc-26da-3428-a53f-6d9879bbc649",
+          "instanceIdentifier" : "05380fe4-019c-1000-60fa-95e2265de329",
+          "labelIndex" : 0,
+          "loadBalanceCompression" : "DO_NOT_COMPRESS",
+          "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+          "name" : "",
+          "partitioningAttribute" : "",
+          "prioritizers" : [ ],
+          "selectedRelationships" : [ "success" ],
+          "source" : {
+            "comments" : "",
+            "groupId" : "8fe0853f-db36-3235-9500-890f39713c9f",
+            "id" : "40984e23-be24-3f85-9640-6a12d28bc36b",
+            "instanceIdentifier" : "05342bbd-019c-1000-b46c-ca4296e0548b",
+            "name" : "GenerateFlowFile",
+            "type" : "PROCESSOR"
+          },
+          "zIndex" : 2
+        }, {
+          "backPressureDataSizeThreshold" : "1 GB",
+          "backPressureObjectThreshold" : 10000,
+          "bends" : [ ],
+          "componentType" : "CONNECTION",
+          "destination" : {
+            "comments" : "",
+            "groupId" : "8fe0853f-db36-3235-9500-890f39713c9f",
+            "id" : "5a84c268-016c-3180-8d6c-2026e450be57",
+            "instanceIdentifier" : "05348a64-019c-1000-b47b-044778ca5b97",
+            "name" : "PutFile",
+            "type" : "PROCESSOR"
+          },
+          "flowFileExpiration" : "0 sec",
+          "groupIdentifier" : "8fe0853f-db36-3235-9500-890f39713c9f",
+          "identifier" : "b21d2eb1-63a0-3738-9b08-21b754f25115",
+          "instanceIdentifier" : "05380256-019c-1000-1777-54f5a760097d",
+          "labelIndex" : 0,
+          "loadBalanceCompression" : "DO_NOT_COMPRESS",
+          "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+          "name" : "",
+          "partitioningAttribute" : "",
+          "prioritizers" : [ ],
+          "selectedRelationships" : [ "success" ],
+          "source" : {
+            "comments" : "",
+            "groupId" : "8fe0853f-db36-3235-9500-890f39713c9f",
+            "id" : "12ff65cf-b291-3925-ac03-b8b0d9b7570c",
+            "instanceIdentifier" : "05345fcf-019c-1000-2f67-8ca4c95b7b67",
+            "name" : "ReplaceText",
+            "type" : "PROCESSOR"
+          },
+          "zIndex" : 1
+        } ],
         "controllerServices" : [ ],
         "defaultBackPressureDataSizeThreshold" : "1 GB",
         "defaultBackPressureObjectThreshold" : 10000,
@@ -49,13 +115,14 @@
           "name" : "GenerateFlowFile",
           "penaltyDuration" : "30 sec",
           "position" : {
-            "x" : -1622.1231125581976,
-            "y" : -666.3398276593041
+            "x" : -1608.0,
+            "y" : -696.0
           },
           "properties" : {
             "File Size" : "0B",
             "Batch Size" : "1",
             "Unique FlowFiles" : "false",
+            "Custom Text" : "file di testo semplice",
             "Character Set" : "UTF-8",
             "Data Format" : "Text"
           },
@@ -120,7 +187,7 @@
           "type" : "org.apache.nifi.processors.standard.GenerateFlowFile",
           "yieldDuration" : "1 sec"
         }, {
-          "autoTerminatedRelationships" : [ ],
+          "autoTerminatedRelationships" : [ "success", "failure" ],
           "backoffMechanism" : "PENALIZE_FLOWFILE",
           "bulletinLevel" : "WARN",
           "bundle" : {
@@ -144,6 +211,7 @@
           },
           "properties" : {
             "Create Missing Directories" : "true",
+            "Directory" : "C:\\Users\\leo\\Documents\\nifi\\output\\prod",
             "Conflict Resolution Strategy" : "fail"
           },
           "propertyDescriptors" : {
@@ -214,7 +282,7 @@
           "type" : "org.apache.nifi.processors.standard.PutFile",
           "yieldDuration" : "1 sec"
         }, {
-          "autoTerminatedRelationships" : [ ],
+          "autoTerminatedRelationships" : [ "failure" ],
           "backoffMechanism" : "PENALIZE_FLOWFILE",
           "bulletinLevel" : "WARN",
           "bundle" : {
@@ -237,13 +305,13 @@
             "y" : -504.0
           },
           "properties" : {
-            "Replacement Value" : "$1",
+            "Replacement Value" : "\\nl inserisci quello che ti dico io sotto al precedente testo punto e basta",
             "Search Value" : "(?s)(^.*$)",
             "Evaluation Mode" : "Line-by-Line",
             "Line-by-Line Evaluation Mode" : "All",
             "Character Set" : "UTF-8",
             "Maximum Buffer Size" : "1 MB",
-            "Replacement Strategy" : "Regex Replace"
+            "Replacement Strategy" : "Append"
           },
           "propertyDescriptors" : {
             "Replacement Value" : {
